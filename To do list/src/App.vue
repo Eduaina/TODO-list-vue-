@@ -1,9 +1,9 @@
-<template>
+  <template>
 	<main class="app">
 		
 		<section class="greeting">
 			<h2 class="title">
-				TO DO LIST, <input type="text" id="name" placeholder="Name here" v-model="name">
+				NOTEPAD FOR, <input type="text" id="name" placeholder="Name here" v-model="name">
 			</h2>
 		</section>
 
@@ -28,15 +28,8 @@
 			<div class="list" id="todo-list">
 
 				<div v-for="todo in todos_asc" :class="`todo-item ${todo.done && 'done'}`">
-					<label>
-						<input type="checkbox" v-model="todo.done" />
-						<span :class="`bubble ${
-							todo.category == 'business' 
-								? 'business' 
-								: 'personal'
-						}`"></span>
-					</label>
-
+					
+          
 					<div class="todo-content">
 						<input type="text" v-model="todo.content" />
 					</div>
@@ -84,7 +77,7 @@ const addTodo = () => {
 		content: input_content.value,
 		category: input_category.value,
 		done: false,
-		editable: false,
+		editable: true,
 		createdAt: new Date().getTime()
 	})
 }
